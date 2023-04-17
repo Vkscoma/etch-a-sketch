@@ -69,3 +69,18 @@ button:hover {
 button:active {
     transform: scale(0.95);
 }
+
+@media screen and (max-width: 600px) {
+    html {
+        overflow: hidden;
+    }
+
+    body {
+        font-size: 10px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+}

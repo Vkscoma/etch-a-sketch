@@ -15,33 +15,47 @@ function createGrid() {
     }
 };
 
-createGrid();
+function createMobileGrid() {
+    for (let i = 0; i < 64; i++) {
+        createGridItems();
+    }
+}
+
+function createFinalGrid() {
+    if (window.innerWidth < 768) {
+        createMobileGrid();
+    } else {
+        createGrid();
+    }
+}
+
+createFinalGrid();
 
 function clearGrid() {
     grid.innerHTML = '';
 }
 
-grid.addEventListener('mouseover', (e) => {
+grid.addEventListener('pointerover', (e) => {
     e.target.style.backgroundColor = 'black';
 });
 
 button.addEventListener('click', () => {
     clearGrid();
-    createGrid();
+    createFinalGrid();
 });
 
 blackButton.addEventListener('click', () => {
     clearGrid();
-    createGrid();
-    grid.addEventListener('mouseover', (e) => {
+    createFinalGrid();
+    grid.addEventListener('pointerover', (e) => {
         e.target.style.backgroundColor = 'black';
     });
 });
 
 randomButton.addEventListener('click', () => {
     clearGrid();
-    createGrid();
-    grid.addEventListener('mouseover', (e) => {
+    createFinalGrid();
+    grid.addEventListener('pointerover', (e) => {
         e.target.style.backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     });
 });
